@@ -1,0 +1,29 @@
+.button, body{
+    background-image: url("../images/gameBoard.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-color:#000;
+    color: #fff;
+    font-family: 'Russo One', sans-serif;
+}
+
+#background, #game{
+
+}
+.jumbotron{
+    background-image: url("../images/jeopardy.jpg");
+    height: 630px;
+    background-repeat: no-repeat;
+    background-color: black;
+    margin-bottom: 0;
+}
+
+.fluid{
+    height: 270px;
+    background-repeat: no-repeat;
+    
+}
+
+#timeRemaining{
+    color: white;
+}

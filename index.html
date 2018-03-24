@@ -19,33 +19,38 @@
     crossorigin="anonymous"></script>
 
     <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+
 
 </head>
 <body>
-    <div class="container" id="background">
-        <div class="container" id="game">
-            <div class="col-12" id="header">
-                <h1>Trivia Game</h1>
-            </div>
-            <div class="col-12" id="timer">
-                <span id="timeRemaining"></span>
-            </div>
-            <div class="col-12" id="questions">
-                <span id="trivaQuestion"></span>
-            </div>
-            <div class="col-12" id="selection">
-                <span id="selectAnswer"></span>
-            </div>
-            <div class="col-12" id="correct">
-                <span id="correctAnswer"></span>
-            </div>
-            <div class="col-12" id="imageHolder">
-                <span id="correctImage"></span>
-            </div>
+    <div class="container" id="fullContain">
+        <div class="col-12 jumbotron mt-5 text-right" id="game">
+        </div>
+                <div class="container" id="game">
+                        <div class="col-12 text-center pt-4" id="timer">
+                        <span id="timeRemaining"></span>
+                            </div>
 
+
+                    <div class="col-12 text-center" id="questions">
+                        <span id="trivaQuestion"></span>
+                    </div>
+
+                    <div class="col-12 text-center pt-5" id="selection">
+                        <span id="selectAnswer"></span>
+                    </div>
+
+                    <div class="col-12" id="correct">
+                        <span id="correctAnswer"></span>
+                    </div>
+
+                    <div class="col-12" id="imageHolder">
+                        <span id="correctImage"></span>
+                    </div>
         </div>
     </div>
-    <script src="assets/javascript/apps.js"></script>
+    <script src="assets/javascript/app.js"></script>
 </body>
 </html>
 
