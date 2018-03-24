@@ -4,64 +4,49 @@ var timeRemaining
 var correctGuesses 
 var wrongGuesses
 var noAnswer
-var audio 
-var soundEffects
+
+// Audio Files
+var themeMusic = new Audio("../audio/JeopardyTheme.mp3");
+var questionSound = new Audio("../audio/questionSet.mp3");
+var winSound = new Audio("../audio/correct.mp3");
+var wrongSound = new Audio ("../audio/wrong.mp3");
+
+// images
+var images = [
+    "../images/opening.gif",
+    "../images/correctAnswer.gif",
+    "../images/question1.jpg",
+    "../images/question2.jpg",
+    "../images/question3.jpg",
+    "../images/question4.jpg",
+    "../images/question5.jpg",
+]
 
 // questions&answers  
 var data = [
     {
-    question:" ",
-    choices:["choiceOne", "choiceTwo", "choiceThree"],
-    correctAnswer: " "},
+    question:"How many viewers (on average) does Jeopardy have?",
+    choices:["10 million", "15 million", "30 million"],
+    correctAnswer: "25 million"},
      {
-    question:" ",
-    choices:["choiceOne", "choiceTwo", "choiceThree"],
-    correctAnswer: " "},
+    question:"What is Alex Trebeks full first name?",
+    choices:["Alexander", "Alexis", "Pablo"],
+    correctAnswer: "George"},
      {
-    question:" ",
-    choices:["choiceOne", "choiceTwo", "choiceThree"],
-    correctAnswer: " "},
+    question:"How many episodes are shot in one day of filming the show?",
+    choices:["3 Episodes", "2 Episodes", "7 episodes"],
+    correctAnswer: "5 episodes"},
      {
-    question:" ",
-    choices:["choiceOne", "choiceTwo", "choiceThree"],
-    correctAnswer: " "},
+    question:"How many Daytime Emmy awards has Jeopardy won?",
+    choices:["10", "43", "21"],
+    correctAnswer: "30"},
      {
-    question:" ",
-    choices:["choiceOne", "choiceTwo", "choiceThree"],
-    correctAnswer: " "},
+    question:"How much is the record of the most money won by a contestant?",
+    choices:["1.5 Million Dollars", "3 Million Dollars", "1 Million Dollars"],
+    correctAnswer: "2.5 Million Dollars"}
 ]
-
-// correctAnswer images
-var images = [
-    "assets/images/ ",
-    "assets/images/ ",
-    "assets/images/ ",
-    "assets/images/ ",
-    "assets/images/ ",
-]
-
-
-
 
 // display questions&answers
 function setQuestion(){
     var currentQuestion = data.question[0]
-
 };
-
-
-
-// 1. Jeopardy! averages 25 million viewers per week.
-
-// 2. Alex Trebek’s real first name is George. Alexander is his middle name.
-
-// 3. One week's worth of episodes is shot in one day.
-//    To keep up the illusion of passing time, 
-//    Trebek changes his suit between shows.
-
-// 4. Jeopardy! holds a record 30 Daytime Emmy Awards.
-
-// 5. The original daytime version debuted on NBC on March 30, 1964, 
-//    and aired until January 3, 1975. A weekly nighttime syndicated edition aired 
-//    from September 1974 to September 1975, and a revival, The All-New Jeopardy!, 
-//    ran on NBC from October 1978 to March 1979.
