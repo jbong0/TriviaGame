@@ -36,9 +36,53 @@
             <div class="col-12" id="selection">
                 <span id="selectAnswer"></span>
             </div>
+            <div class="col-12" id="correct">
+                <span id="correctAnswer"></span>
+            </div>
+            <div class="col-12" id="imageHolder">
+                <span id="correctImage"></span>
+            </div>
 
         </div>
     </div>
     <script src="assets/javascript/apps.js"></script>
 </body>
 </html>
+
+<!-- Pseudocode
+Theme: ???
+
+Create Divs
+    - Title
+    - Time Remaining 
+    - Question
+    - Selection of Answers
+    - Correct Answer
+    - Image of Correct Answer
+
+JavaScript
+    Variables
+    - Start Button
+        - Start timer after start button is clicked
+    - Time Remaining
+        - Display countdown for each page 
+        - Set time for each question
+        - Move on to next question 
+            (if) player answer question correct
+                 chooses the incorrect answer
+                 doesn't make a choice and runs out of time on current page
+        - Display if correct/incorrect
+    Arrays
+    - Objects containing questions, choices, and correct answer
+    - Images related to correct answer 
+
+    End of Game
+    - Display number of correct/incorrect guesses
+    - Restart Button
+
+    Extra
+    - Add audio
+    - Add sound effects 
+    
+
+-->
