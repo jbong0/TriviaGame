@@ -1,104 +1,95 @@
-
-// Audio Files
-var themeMusic = new Audio("assets/audio/JeopardyTheme.mp3");
-var questionSound = new Audio("assets/audio/questionSet.mp3");
-var winSound = new Audio("assets/audio/correct.mp3");
-var wrongSound = new Audio ("assets/audio/wrong.mp3");
-
-var questions = [{
+var quiz = [{
     question:"How many viewers (on average) does Jeopardy have?",
-    choices:["10 million", "15 million", "30 million", "25 million"],
-    correctAnswer: 3
+    choices:["30 million", "10 million", "15 million", "20 million"],
+    answer: 0,
     },{
     question:"What is Alex Trebeks full first name?",
-    choices:["Alexander","George", "Alexis", "Pablo"],
-    correctAnswer: 1
+    choices:["Alexander", "Alexis", "Pablo", "George"],
+    answer: 3,
      },{
     question:"How much is the record of the most money won by a contestant?",
-    choices:["2.5 Million Dollars","1.5 Million Dollars", "3 Million Dollars", "1 Million Dollars"],
-    correctAnswer: 0
+    choices:["1.5 Million Dollars","2.5 Million Dollars", "3 Million Dollars", "1 Million Dollars"],
+    answer: 1,
+},{
+    question:"How many episodes of 'Jeopardy' are shot per day of filming? ",
+    choices:[ "5 Episodes", "1 Episode","3 Episodes",  "2 Episodes"],
+    answer: 0,
 }];
 
-var currentQuestion = 0;
+	var userChoice, i=0, number=10, intervalId, right=0, wrong=0;
 
 
-$(document).ready(function() {
-    //  themeMusic.play();
+$(document).ready(function(){
+    
 
-    // change background and display timer on click of jumbotron
-    $(".jumbotron").click(function(){
-        console.log("clicked");
-        $(this).css('background-image', 'url(assets/images/jeopardyfluid.png)');
-        $("#timeRemaining").html('<p>Time Remaining : '+ 10  + '</p>');
-        $(this).attr("class","fluid mt-5");
-        showTimer();
-        showCurrentQuestion();
-        $("jumbotron").off("click", ".jumbotron");
-    })
+		loadData(i);
+		
+  		$("#button1, #button2, #button3, #button4").click(function(){
 
-    // timer
-     function showTimer(){   
-     counter = 9;
-     timer = setInterval(function(){
-     $("#timeRemaining").html('<p>Time Remaining : '+ counter  + '</p>');
-      counter--;
-      if (counter === -1) {
-        clearInterval(timer);
-      }
-    }, 1000)
+       	userChoice = $(this).val();
+       	stop();
+
+    	if (userChoice==quiz[i].answer) 
+    		{
+    			alert("Correct!");
+    			i++;
+    			right++;
+    			$("#question").empty();
+    			$("#choice1, #choice2, #choice3, #choice4").empty();
+    			loadData(i);
+    		}
+    	
+    	else{
+    			alert("Wrong!");
+    			i++;
+    			wrong++;
+    			$("#question").empty();
+    			$("#choice1, #choice2, #choice3, #choice4").empty();
+				loadData(i);    		
+			}
+    	});
+
+
+
+});
+
+function loadData(i)
+{	
+	if(i===4)
+  	{
+  		alert("You got " + right + " correct, and " + wrong + " wrong!");
+  		stop();
+  	}
+	$("#question").html(quiz[i].question);
+  	$("#choice1").html(quiz[i].choices[0]);
+  	$("#choice2").html(quiz[i].choices[1]);
+  	$("#choice3").html(quiz[i].choices[2]);
+  	$("#choice4").html(quiz[i].choices[3]);
+  	run();
 }
-    // display question
-    function showCurrentQuestion() {
-    var question = questions[currentQuestion].question;
-    var questionClass = $("#triviaQuestion");
-    var choices = $("#selectAnswer");
-    var numberChoices = questions[currentQuestion].choices.length;
-
-    // Set the questionClass text to the current question
-    $(questionClass).text(question);
-
-    var choice;
-    for (i = 0; i < numberChoices; i++) {
-        choice = questions[currentQuestion].choices[i];
-        $("<h4>"  +  choice + "</h4>").appendTo(choices);
-    }
+  		
+    function run() {
+      intervalId = setInterval(decrement, 1000);
     }
 
+    function decrement() {
 
-//   // question 1
-//     function displayQuestion1(){
-//         $("#trivaQuestion").append("<h2>" + questions[0].question + "</h2>");
-//         $("#selectAnswer").append("<li>" + questions[0].choices[0] + "</li>");
-//         $("#selectAnswer").append("<li>" + questions[0].choices[1] + "</li>");
-//         $("#selectAnswer").append("<li>" + questions[0].choices[2] + "</li>");
-//         $("#selectAnswer").append("<li><div id='correct'>" + questions[0].correctAnswer + "</li></div>");
-//     }
-//     // displayQuestion1();
+      number--;
 
-//     // question 2
-//     function displayQuestion2(){
-//         $("#trivaQuestion").append("<h2>" + questions[1].question + "</h2>");
-//         $("#selectAnswer").append("<h4>" + questions[1].choices[0] + "</h4>");
-//         $("#selectAnswer").append("<h4>" + questions[1].correctAnswer + "</h4>");
-//         $("#selectAnswer").append("<h4>" + questions[1].choices[1] + "</h4>");
-//         $("#selectAnswer").append("<h4>" + questions[1].choices[2] + "</h4>");
+      $("#timeRemaining").html(number);
 
-//     }
-//     // displayQuestion2();
+      if (number === 0) {
+      	alert("Time has run out!");
+      	wrong++;
+      	i++;
+      	$("#question").empty();
+    	$("#choice1, #choice2, #choice3, #choice4").empty();
+      	loadData(i);
+        stop();
+      }
+    }
 
-//     // question 3
-//     function displayQuestion3(){
-//         $("#trivaQuestion").append("<h2>" + questions[2].question + "</h2>");
-//         $("#selectAnswer").append("<h4>" + questions[2].choices[0] + "</h4>");
-//         $("#selectAnswer").append("<h4>" + questions[2].choices[1] + "</h4>");
-//         $("#selectAnswer").append("<h4>" + questions[2].correctAnswer + "</h4>");
-//         $("#selectAnswer").append("<h4>" + questions[2].choices[2] + "</h4>");
-       
-//     }
-//     // displayQuestion3();
-
-
-    })
-
-
-
+    function stop() {
+      clearInterval(intervalId);
+      number=10;
+    }

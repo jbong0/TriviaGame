@@ -7,7 +7,8 @@
     font-family: 'Russo One', sans-serif;
 }
 
-#background, #game{
+#game{
+    border-left: 20-px solid purple;
 
 }
 .jumbotron{
@@ -30,9 +31,48 @@
 
 h4{
     margin-bottom: 20px;
+    padding: 10px;
 }
 
 ul {
     list-style: none;
     font-size: 28px;
+}
+
+i{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.music{
+    margin-top: 20px;
+}
+.outlineElement {  
+    background-color: purple;
+}
+
+.btn-block{
+    background-color: transparent;  
+}
+
+.btn:a{
+    outline: none;
+}
+
+.audio{
+    position: relative;
+    float: right;
+}
+
+#timeRemaining{
+    position: absolute;
+}
+
+#timer{
+    margin: 0;
+}
+
+@media and screen{(max-width: 720px);
+    .jumbotron{
+        width: 100%;
+    }
 }

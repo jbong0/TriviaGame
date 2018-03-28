@@ -4,104 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Trivia</title>
+    <title>Jeopardy Trivia</title>
     
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-
     <!-- jQuery -->
+    
     <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
-
+    src="https://code.jquery.com/jquery-3.3.1.js"integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+     <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
-
-
 </head>
+
 <body>
     <div class="container" id="fullContain">
-        <div class="col-12 jumbotron mt-5 text-right" id="game">
+        
+        <div class="col-sm-12 jumbotron mt-5 text-right" id="game">
         </div>
-                <div class="container" id="game">
-                        <div class="col-12 text-left pt-4 pb-5" id="timer">
-                        <span id="timeRemaining"></span>
-                            </div>
+            <div class="container" id="game">
+
+                <div class="row">
+
+                <div class="col-6 pt-4 pb-5" id="timer">
+                <span id="timeRemaining"></span></div>
+
+                <div class="col-6 pt-4 pb-5 text-right" id="audio">
+                <audio id="myAudio" src="assets/audio/JeopardyTheme.mp3" preload="auto">
+                </audio>
+                <a id="music" class="col-6" onClick="togglePlay()">Music &#128263;</a></span>
+                </div>
+                </div></div>
+                        
+                <div class="col-12 text-center" id="questions">
+                    <span><h4 id="question"></h4></span>
+                </div>
 
 
-                    <div class="col-12 text-center" id="questions">
-                        <span id="trivaQuestion"></span>
-                    </div>
+                <span id="selectAnswer" class="col-4 text-center pt-5 pb-3 mb-5">
+                    <label class="btn btn-block text-white" value="0" id="button1"><h4 id="choice1"></h4></label>
+                    <label class="btn btn-block text-white" value="1" id="button2"><h4 id="choice2"></h4></label>
+                    <label class="btn btn-block text-white" value="2" id="button3"><h4 id="choice3"></h4></label>
+                    <label class="btn btn-block text-white" value="3" id="button4"><h4 id="choice4"></h4></label>
+                </span>
 
-                    <div class="col-12 text-center pt-5 pb-3" id="selection">
-                        <span id="selectAnswer"></span>
-                    </div>
+                <span id="correctImage"></span>
 
-                    <div class="col-12 text-center" id="correct">
-                        <span id="correctAnswer"></span>
-                    </div>
-
-                    <div class="col-12" id="imageHolder">
-                        <span id="correctImage"></span>
-                    </div>
+                <div class="text-right">
+    
         </div>
     </div>
     <script src="assets/javascript/app.js"></script>
 </body>
 </html>
 
-<!-- Pseudocode
-Theme: Jeopardy!
 
-Create Divs
-    - Title
-    - Time Remaining 
-    - Question
-    - Selection of Answers
-    - Correct Answer
-    - Image of Correct Answer
-
-JavaScript
-    Variables
-    - Start Button
-        - Start timer after start button is clicked
-    - Time Remaining
-        - Display countdown for each page 
-        - Set time for each question
-        - Move on to next question 
-            (if) player answer question correct
-                 chooses the incorrect answer
-                 doesn't make a choice and runs out of time on current page
-        - Display if correct/incorrect
-    Arrays
-    - Objects containing questions, choices, and correct answer
-    - Images related to correct answer 
-
-    End of Game
-    - Display number of correct/incorrect guesses
-    - Restart Button
-
-    Extra
-    - Add audio
-    - Add sound effects 
-    
-
-
-// 1. Jeopardy! averages 25 million viewers per week.
-
-// 2. Alex Trebek’s real first name is George. Alexander is his middle name.
-
-// 3. One week's worth of episodes is shot in one day.
-//    To keep up the illusion of passing time, 
-//    Trebek changes his suit between shows.
-
-// 4. Jeopardy! holds a record 30 Daytime Emmy Awards.
-
-// 5. "Jeopardy!" champion Ken Jennings' winning streak ended 10 years ago today. 
-// Jennings set the record for the most consecutive games played while winning 74 games in a row. 
-// The streak netted him winnings of more than $2.5 million.Nov 30, 2014
--->
