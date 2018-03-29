@@ -26,8 +26,8 @@
         
         <div class="col-sm-12 jumbotron mt-5 text-right" id="game">
         </div>
-            <div class="container" id="game">
-
+            <div class="container" id="game"></div>
+           <div class="container">
                 <div class="row">
 
                 <div class="col-6 pt-4 pb-5" id="timer">
@@ -39,9 +39,11 @@
                 <a id="music" class="col-6" onClick="togglePlay()">Music &#128263;</a></span>
                 </div>
                 </div></div>
+
+              
                         
                 <div class="col-12 text-center" id="questions">
-                    <span><h4 id="question"></h4></span>
+                    <span><h3 id="question"></h3></span>
                 </div>
 
 
@@ -52,11 +54,13 @@
                     <label class="btn btn-block text-white" value="3" id="button4"><h4 id="choice4"></h4></label>
                 </span>
 
-                <span id="rightDiv"></span>
-                <span id="wrongDiv"></span>
-
-                <div class="text-right">
-    
+                <div class="row text-right" >
+                    <p><h1>Results:</h1></p></div>
+                <div class="row" id="results">
+                    <h4 class="col-6" id="rightDiv"></h4>
+                    <h4 class="col-6 text-right" id="wrongDiv"> </h4>
+                </div>
+                </div>  
         </div>
     </div>
     <script src="assets/javascript/app.js"></script>
