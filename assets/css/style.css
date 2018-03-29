@@ -71,8 +71,3 @@ i{
     margin: 0;
 }
 
-@media and screen{(max-width: 720px);
-    .jumbotron{
-        width: 100%;
-    }
-}

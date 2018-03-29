@@ -1,26 +1,25 @@
 var quiz = [{
     question:"How many viewers (on average) does Jeopardy have?",
     choices:["30 million", "10 million", "15 million", "20 million"],
-    answer: 0,
+    answer_Index: 0,
     },{
     question:"What is Alex Trebeks full first name?",
     choices:["Alexander", "Alexis", "Pablo", "George"],
-    answer: 3,
+    answer_Index: 3,
      },{
     question:"How much is the record of the most money won by a contestant?",
     choices:["1.5 Million Dollars","2.5 Million Dollars", "3 Million Dollars", "1 Million Dollars"],
-    answer: 1,
+    answer_Index: 1,
 },{
     question:"How many episodes of 'Jeopardy' are shot per day of filming? ",
     choices:[ "5 Episodes", "1 Episode","3 Episodes",  "2 Episodes"],
-    answer: 0,
+    answer_Index: 0,
 }];
 
 	var userChoice, i=0, number=10, intervalId, right=0, wrong=0;
 
 
-$(document).ready(function(){
-    
+window.onload = function() {
 
 		loadData(i);
 		
@@ -29,7 +28,7 @@ $(document).ready(function(){
        	userChoice = $(this).val();
        	stop();
 
-    	if (userChoice==quiz[i].answer) 
+    	if (userChoice==quiz[i].answer_Index) 
     		{
     			alert("Correct!");
     			i++;
@@ -51,7 +50,7 @@ $(document).ready(function(){
 
 
 
-});
+};
 
 function loadData(i)
 {	
@@ -76,7 +75,7 @@ function loadData(i)
 
       number--;
 
-      $("#timeRemaining").html(number);
+      $("#time").html(number);
 
       if (number === 0) {
       	alert("Time has run out!");
@@ -93,3 +92,5 @@ function loadData(i)
       clearInterval(intervalId);
       number=10;
     }
+
+    setTimeout(loadData, 1000)
